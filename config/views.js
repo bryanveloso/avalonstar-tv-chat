@@ -47,6 +47,6 @@ module.exports.views = {
   // Otherwise, if a string is specified, it will be interpreted as the relative
   // path to your layout file from `views/` folder. (the file extension,
   // ".ejs", should be omitted)
-  layout: false,
+  layout: false
 
 };
