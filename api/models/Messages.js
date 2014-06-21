@@ -6,9 +6,7 @@
 */
 
 module.exports = {
-
-  attributes: {
-
-  }
+  adapter: 'tmi',
+  attributes: {},
 };
 
