@@ -14,6 +14,7 @@ var Viewer = {
     updated: 'date',
 
     // Viewer statuses (turbo, staff, etc.)
+    isModerator: 'boolean',
     isStaff: 'boolean',
     isSubscriber: 'boolean',
     isTurbo: 'boolean',
