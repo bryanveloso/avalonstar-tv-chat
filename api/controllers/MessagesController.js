@@ -5,7 +5,6 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
-module.exports = {
-	
-};
+var MessagesController = {};
 
+module.exports = MessagesController;
