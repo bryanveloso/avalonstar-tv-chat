@@ -75,7 +75,10 @@ module.exports.connections = {
   },
 
   tmi: {
-    adapter: 'sails-tmi'
+    adapter: 'sails-tmi',
+    channel: '#avalonstar',
+    nick: 'elsydeon',
+    host: 'irc.twitch.tv',
   }
 
   // More adapters:
