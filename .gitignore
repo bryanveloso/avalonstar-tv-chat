@@ -32,6 +32,7 @@ node_modules
 
 # Miscellaneous
 .DS_Store
+.env
 
 # Local configuration
 config/local.js
