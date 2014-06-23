@@ -11,6 +11,7 @@ var Broadcast = {
 
     // Metadata. Dates.
     created: 'date',
+    length: 'string',
 
     // Games played.
     games: 'array',
