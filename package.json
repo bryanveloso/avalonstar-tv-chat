@@ -24,7 +24,7 @@
     "grunt-contrib-coffee": "~0.10.1",
     "grunt-contrib-sass": "^0.7.3",
     "handlebars": "^2.0.0-alpha.4",
-    "sails-tmi": "^0.1.1"
+    "sails-tmi": "^0.1.6"
   },
   "scripts": {
     "start": "node app.js",
