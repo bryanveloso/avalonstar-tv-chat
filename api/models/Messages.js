@@ -1,12 +1,17 @@
 /**
 * Messages.js
 *
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
+* @description :: Represents a message sent via IRC.
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
-module.exports = {
+var Message = {
   adapter: 'tmi',
-  attributes: {},
+  attributes: {
+    from: 'string',
+    to: 'string',
+    message: 'string'
+  }
 };
 
+module.exports = Message;
