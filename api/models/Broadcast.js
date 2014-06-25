@@ -7,7 +7,7 @@
 
 var Broadcast = {
   attributes: {
-    number: 'integer',
+    number: { type: 'integer', required: 'true' },
 
     // Metadata. Dates.
     created: 'date',

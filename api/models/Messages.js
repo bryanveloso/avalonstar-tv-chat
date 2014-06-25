@@ -6,11 +6,12 @@
 */
 
 var Message = {
-  adapter: 'tmi',
+  // adapter: 'tmi',
   attributes: {
-    from: 'string',
-    to: 'string',
-    message: 'string'
+    from: { type: 'string', required: true },
+    to: { type: 'string', required: true },
+    message: { type: 'string', required: true },
+    type: { type: 'string', required: true }
   }
 };
 
