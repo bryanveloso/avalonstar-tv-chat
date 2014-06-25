@@ -23,10 +23,7 @@ var Viewer = {
     emoticons: 'array',
 
     // Relation for every broadcast a viewer has chatted in.
-    broadcasts: {
-      collection: 'Broadcast',
-      via: 'id'
-    }
+    broadcasts: { collection: 'Broadcast', via: 'id' }
   }
 };
 
