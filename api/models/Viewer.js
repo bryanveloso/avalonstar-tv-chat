@@ -20,7 +20,13 @@ var Viewer = {
     isTurbo: 'boolean',
 
     // Emoticon set.
-    emoticons: 'array'
+    emoticons: 'array',
+
+    // Relation for every broadcast a viewer has chatted in.
+    broadcasts: {
+      collection: 'Broadcast',
+      via: 'id'
+    }
   }
 };
 
