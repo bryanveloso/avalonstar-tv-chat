@@ -3,7 +3,7 @@
  *
  * Use `app.js` to run your app without `sails lift`.
  * To start the server, run: `node app.js`.
- * 
+ *
  * This is handy in situations where the sails CLI is not relevant or useful.
  *
  * For example:
@@ -12,7 +12,7 @@
  *   => `node debug app.js`
  *   => `modulus deploy`
  *   => `heroku scale`
- * 
+ *
  *
  * The same command-line arguments are supported, e.g.:
  * `node app.js --silent --port=80 --prod`
@@ -48,6 +48,12 @@ try {
 	}
 }
 
+// Load .env
+var dotenv = require('dotenv');
+dotenv.load();
 
-// Start server
+// Log environment variables.
+console.log(process.env);
+
+// Start server.
 sails.lift(rc('sails'));
