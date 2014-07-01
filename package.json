@@ -25,7 +25,7 @@
     "rc": "~0.3.3",
     "sails": "~0.10.0-rc8",
     "sails-disk": "~0.10.0",
-    "sails-redis": "^0.9.3",
+    "sails-redis": "^0.10.0-rc2",
     "sails-tmi": "^0.1.6"
   },
   "scripts": {
