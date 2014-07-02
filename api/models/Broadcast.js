@@ -6,6 +6,7 @@
 */
 
 var Broadcast = {
+  adapter: 'redis',
   attributes: {
     number: { type: 'integer', required: 'true' },
 

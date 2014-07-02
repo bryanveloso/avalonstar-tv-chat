@@ -6,7 +6,7 @@
 */
 
 var Message = {
-  // adapter: 'tmi',
+  adapter: ['redis', 'tmi'],
   attributes: {
     from: { type: 'string', required: true },
     to: { type: 'string', required: true },

@@ -6,6 +6,7 @@
 */
 
 var Viewer = {
+  adapter: 'redis',
   attributes: {
     handle: 'string',
 
