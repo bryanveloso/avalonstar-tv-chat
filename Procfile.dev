@@ -1,0 +1,2 @@
+ember:  sh -c 'cd frontend && ember serve'
+sails:  sails lift
