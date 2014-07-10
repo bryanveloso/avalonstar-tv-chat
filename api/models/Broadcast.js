@@ -20,6 +20,7 @@ var Broadcast = {
     // Broadcast statuses (special, charity, etc.)
     isCharity: 'boolean',
     isCouple: 'boolean',
+    isCoworker: 'boolean',
     isMarathon: 'boolean',
 
     // Status. Much like Twitch's `status`, but can be used for other
