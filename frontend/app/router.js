@@ -5,6 +5,9 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.resource('broadcasts');
+  this.resource('viewers');
+
   // ...
   this.resource('live', function() {
     this.route('prologue');
