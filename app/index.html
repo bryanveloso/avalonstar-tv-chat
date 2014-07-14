@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Avalonstar</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{BASE_TAG}}
+
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/avalonstar.css">
+  </head>
+  <body>
+    <script>
+      window.AvalonstarENV = {{ENV}};
+      window.EmberENV = window.AvalonstarENV.EmberENV;
+    </script>
+    <script src="assets/vendor.js"></script>
+    <script src="assets/avalonstar.js"></script>
+    <script>
+      window.Avalonstar = require('avalonstar/app')['default'].create(AvalonstarENV.APP);
+    </script>
+  </body>
+</html>

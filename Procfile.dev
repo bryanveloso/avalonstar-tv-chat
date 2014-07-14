@@ -1,2 +1,0 @@
-ember:  sh -c 'cd frontend && ember serve --proxy http://0.0.0.0:1337'
-sails:  sails lift

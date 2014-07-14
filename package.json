@@ -1,42 +1,32 @@
 {
   "name": "avalonstar",
-  "private": true,
   "version": "0.0.0",
-  "description": "a Sails application",
-  "keywords": [],
-  "dependencies": {
-    "dotenv": "^0.3.0",
-    "ejs": "~0.8.4",
-    "grunt": "0.4.2",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-coffee": "~0.10.1",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-cssmin": "~0.9.0",
-    "grunt-contrib-jst": "~0.6.0",
-    "grunt-contrib-less": "~0.11.0",
-    "grunt-contrib-sass": "^0.7.3",
-    "grunt-contrib-uglify": "~0.4.0",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-sails-linker": "~0.9.5",
-    "grunt-sync": "~0.0.4",
-    "handlebars": "^2.0.0-alpha.4",
-    "include-all": "~0.1.3",
-    "rc": "~0.3.3",
-    "sails": "~0.10.0-rc8",
-    "sails-disk": "~0.10.0",
-    "sails-redis": "^0.10.0-rc2",
-    "sails-tmi": "^0.1.6"
+  "private": true,
+  "directories": {
+    "doc": "doc",
+    "test": "test"
   },
   "scripts": {
-    "start": "node app.js",
-    "debug": "node debug app.js"
+    "start": "ember server",
+    "build": "ember build",
+    "test": "ember test"
   },
-  "main": "app.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/bryanveloso/avalonstar.git"
+  "repository": "https://github.com/stefanpenner/ember-cli",
+  "engines": {
+    "node": ">= 0.10.0"
   },
-  "author": "Bryan Veloso",
-  "license": ""
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "body-parser": "^1.2.0",
+    "broccoli-asset-rev": "0.0.11",
+    "broccoli-ember-hbs-template-compiler": "^1.5.0",
+    "ember-cli": "0.0.39",
+    "ember-cli-coffeescript": "0.0.4",
+    "ember-cli-ember-data": "0.1.0",
+    "ember-cli-ic-ajax": "0.1.1",
+    "express": "^4.1.1",
+    "glob": "^3.2.9",
+    "originate": "0.1.5"
+  }
 }
