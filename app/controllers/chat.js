@@ -9,6 +9,7 @@ export default Ember.Controller.extend(EmberPusher.Bindings, {
   actions: {
     message: function(data) {
       console.log(data);
+      data.style = 'color: ' + data.color;
       this.array.pushObject(data);
     }
   }
