@@ -1,7 +1,9 @@
 <ul class="chat">
 {{#each item in array}}
   <li class="chat-line">
-    <span class="chatter" {{bindAttr style="item.style"}}>{{item.username}}</span>
+    <span class="chatter" {{bind-attr style="item.style"}}>
+      {{item.username}}
+    </span>
     <span class="message">{{item.message}}</span>
     <span class="timestamp">{{item.timestamp}}</span>
     <ul class="chatter-roles">
