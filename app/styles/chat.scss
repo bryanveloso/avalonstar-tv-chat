@@ -5,3 +5,17 @@ body {
   font-weight: 400;
   font-style: normal;
 }
+
+.chat, .chatter-roles {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+.chat-line {
+
+}
+.chatter {
+  color: #fff;
+  font-weight: bold;
+}
