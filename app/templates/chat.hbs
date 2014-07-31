@@ -1,12 +1,14 @@
 <ul class="chat">
 {{#each item in array}}
-  <li>
-  {{#each role in item.roles}}
-    {{role}}
-  {{/each}}
-  {{item.username}}
-  {{item.message}}
-  {{item.timestamp}}
+  <li class="chat-line">
+    <span class="chatter">{{item.username}}</span>
+    <span class="message">{{item.message}}</span>
+    <span class="timestamp">{{item.timestamp}}</span>
+    <ul>
+    {{#each role in item.roles}}
+      <li class="chatter-role role-{{role}}"><span></span></li>
+    {{/each}}
+    </ul>
   </li>
 {{/each}}
 </ul>
