@@ -1,1 +1,12 @@
-hi
+<ul class="chat">
+{{#each item in array}}
+  <li>
+  {{#each role in item.roles}}
+    {{role}}
+  {{/each}}
+  {{item.username}}
+  {{item.message}}
+  {{item.timestamp}}
+  </li>
+{{/each}}
+</ul>
