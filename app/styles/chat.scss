@@ -18,7 +18,7 @@ body {
   margin-bottom: 6px;
 
   font-size: 12px;
-  line-height: 18px;
+  line-height: 20px;
 }
 
 .chatter {
@@ -29,11 +29,9 @@ body {
 .chatter-role {
   display: inline-block;
   margin-left: -3px;
-  width: 22px; height: 20px;
+  width: 18px; height: 20px;
 
-  background-color: #0a0a0a;
   background-position: center center;
-  border-radius: 2px;
 
   &.role-admin { background-image: url('/images/role-admin.png'); }
   &.role-broadcaster { background-image: url('/images/role-broadcaster.png'); }
