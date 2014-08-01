@@ -1,21 +1,45 @@
 body {
-  background: #000;
+  background: #141414;
   color: #fff;
   font-family: 'Gotham SSm A', 'Gotham SSm B';
   font-weight: 400;
-  font-style: normal;
-}
+  font-style: normal; }
 
 .chat, .chatter-roles {
   margin: 0;
   padding: 0;
 
-  list-style: none;
-}
+  list-style: none; }
 .chat-line {
-
+  display: flex;
 }
+.line {
+  flex: 1;
+  margin-bottom: 6px;
+
+  font-size: 12px;
+  line-height: 18px;
+}
+
 .chatter {
   color: #fff;
-  font-weight: bold;
+  font-weight: bold; }
+
+.chatter-roles { margin-left: 10px; }
+.chatter-role {
+  display: inline-block;
+  margin-left: -3px;
+  width: 22px; height: 20px;
+
+  background-color: #0a0a0a;
+  background-position: center center;
+  border-radius: 2px;
+
+  &.role-admin { background-image: url('/images/role-admin.png'); }
+  &.role-broadcaster { background-image: url('/images/role-broadcaster.png'); }
+  &.role-moderator { background-image: url('/images/role-moderator.png'); }
+  &.role-staff { background-image: url('/images/role-staff.png'); }
+  &.role-turbo { background-image: url('/images/role-turbo.png'); }
 }
+
+.timestamp { display: none }
