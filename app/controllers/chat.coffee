@@ -3,6 +3,7 @@
 Chat = Ember.Controller.extend(EmberPusher.Bindings,
   init: ->
     @loadEmoticons()
+    @_super()
 
   # Pusher configuration.
   PUSHER_SUBSCRIPTIONS:
