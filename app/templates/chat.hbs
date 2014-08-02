@@ -1,7 +1,9 @@
+{{styleEmoticons}}
+
 <div class="chat-container">
   <ul class="chat">
   {{#each item in messages}}
-    <li class="chat-line">
+    <li class="chat-line" {{bind-attr data-username="item.username"}}>
       <div class="line">
       {{#if item.emote}}
         <span class="emoted">

@@ -5,9 +5,8 @@ body {
   font-weight: 400;
   font-style: normal; }
 
-.chat-container {
-  overflow: hidden;
-}
+.chat-container { overflow: hidden; }
+.chat { overflow-y: scroll; }
 .chat, .chatter-roles {
   margin: 0;
   padding: 0;
@@ -44,3 +43,5 @@ body {
 }
 
 .timestamp { display: none }
+
+.emoticon { display: inline-block }
