@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
 
 Chat = Ember.View.extend
+  classNames: ['chat']
   templateName: 'chat'
 
   # Emoticon-related data.
@@ -26,8 +27,8 @@ Chat = Ember.View.extend
   ).observes('controller.isLoaded')
 
   scrolling: (->
-    container = @$('.chat')
-    container[0].scrollTop = container[0].scrollHeight if container?
+    container = @$('.chat-list')
+    container.scrollTop(container.prop('scrollHeight')) if container?
   ).observes('controller.messages.length')
 
 `export default Chat`

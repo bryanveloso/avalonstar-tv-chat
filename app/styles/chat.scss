@@ -5,9 +5,16 @@ body {
   font-weight: 400;
   font-style: normal; }
 
-.chat-container { overflow: hidden; }
-.chat { overflow-y: scroll; }
-.chat, .chatter-roles {
+.chat {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  overflow: hidden;
+}
+.chat-list {
+  height: 100%;
+  overflow-y: scroll;
+}
+.chat-list, .chatter-roles {
   margin: 0;
   padding: 0;
 
