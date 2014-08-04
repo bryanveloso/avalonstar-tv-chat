@@ -99,7 +99,7 @@ Chat = Ember.Controller.extend(EmberPusher.Bindings,
         .emo-#{image.id} {
           background-image: url('#{image.url}');
           width: #{image.width}px; height: #{image.height}px;
-          margin-top: #{(image.height - 18) / 2}px; }
+          margin-top: -#{(image.height - 18) / 2}px; }
 
         """
 
