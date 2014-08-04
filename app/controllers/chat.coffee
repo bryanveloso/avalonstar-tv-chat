@@ -26,12 +26,12 @@ Chat = Ember.Controller.extend(EmberPusher.Bindings,
     return
 
   emoticonize: (message, emotes) ->
-    self = @
+    # Add the default emotes to the set.
+    emotes = emotes.concat @emoticon_sets['default']
 
     for set in emotes
-      unless typeof self.emoticon_sets[set] is 'undefined'
-        console.log self.emoticon_sets[set]
-        for emote in self.emoticon_sets[set]
+      unless typeof @emoticon_sets[set] is 'undefined'
+        for emote in @emoticon_sets[set]
           if message.match(emote.regex)
             message = message.replace(emote.regex, emote.html)
             console.log emote.html
@@ -112,31 +112,6 @@ Chat = Ember.Controller.extend(EmberPusher.Bindings,
     console.log "#{images} images styled."
     return "<style>#{styles}</style>"
   ).property('emoticons.[]')
-
-  # emoticonStyle: function () {
-  #   var self = this,
-  #       styles = '',
-  #       EMOTICON_TEMPLATE_COMPILED = Handlebars.compile(
-  #       '.emo-{{id}} {' +
-  #         'background-image:url({{url}});' +
-  #         'height:{{height}}px;' +
-  #         'width:{{width}}px;' +
-  #         '{{#if tall}}margin:-{{marginTop}}px 0;{{/if}} ' +
-  #       '}');
-  #   this.get('emoticons').forEach(function (emoticon) {
-  #     emoticon.images.forEach(function (image) {
-  #       styles += EMOTICON_TEMPLATE_COMPILED({
-  #         id: image.id,
-  #         url: image.url,
-  #         height: image.height,
-  #         width: image.width,
-  #         tall: image.height > 18,
-  #         marginTop: (image.height - 18) / 2
-  #       });
-  #     });
-  #   });
-  #   return '<style>.emoticon { display: inline-block; }' + styles + '</style>';
-  # }.property('emoticons.[]')
 
   # Actions.
   actions:
