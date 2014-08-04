@@ -1,6 +1,6 @@
 <li class="chat-line" {{bind-attr data-username="item.username"}}>
   <div class="line">
-  {{#if item.emote}}
+  {{#if item.is_emote}}
     <span class="emoted">
       <span class="chatter" {{bind-attr style="item.style"}}>{{item.username}}</span>
       <span class="message" {{bind-attr style="item.style"}}>{{item.message}}</span>
