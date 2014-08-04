@@ -25,12 +25,12 @@ body {
   opacity: 0;
   transition: all 250ms ease-in-out;
 
-  &.broadcaster-line { background-color: #111; }
   &.visible { opacity: 1; }
 }
+.broadcaster-line, .broadcaster-line.visible { background-color: #111; }
 .line {
   flex: 1;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 26px;
   text-shadow: 0 1px 2px #111; }
 
