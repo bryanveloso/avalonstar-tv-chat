@@ -57,6 +57,11 @@ Chat = Ember.Controller.extend(EmberPusher.Bindings,
       id = 0
       for emoticon in json.emoticons
         regex = emoticon.regex
+        if regex.indexOf("(") >= 0
+          regex = regex.replace("(p|P)", "(?:p|P)")
+          regex = regex.replace("(o|O)", "(?:o|O)")
+          regex = regex.replace("(S|s)", "(?:S|s)")
+          regex = regex.replace("(_|\\.)", "(?:_|\\.)")
         regex = "\\b#{regex}\\b" if regex.match(/^\w+$/)
         regex = new RegExp(regex, 'g')
 
