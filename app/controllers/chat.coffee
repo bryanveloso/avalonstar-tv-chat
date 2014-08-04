@@ -22,24 +22,30 @@ Chat = Ember.Controller.extend(EmberPusher.Bindings,
       data.roles = data.roles.filter (role) -> role isnt 'admin'
 
     data.message = @emoticonize(data.message, data.emotes)
+    data.message = @linkify(data.message)
     @messages.pushObject data
     return
 
   emoticonize: (message, emotes) ->
     # Add the default emotes to the set.
     emotes = emotes.concat ['default']
-    console.log emotes
-
     for set in emotes
       unless typeof @emoticon_sets[set] is 'undefined'
         for emote in @emoticon_sets[set]
           if message.match(emote.regex)
             message = message.replace(emote.regex, emote.html)
-            console.log emote.html
-            console.log message
-            console.log "WE FOUND A MATCH."
-
     return message
+
+  linkify: (message) ->
+    # URLs starting with http://, https://, or ftp://
+    replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim
+    linkifiedText = message.replace(replacePattern1, '<a href="$1" target="_blank">$1</a>')
+
+    # URLs starting with "www." (without // before it, or it'd re-link the ones done above).
+    replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim
+    linkifiedText = message.replace(replacePattern2, '$1<a href="http://$2" target="_blank">$2</a>')
+
+    return linkifiedText
 
   # Emoticon-related data.
   emoticons: []
