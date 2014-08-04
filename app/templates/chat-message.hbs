@@ -7,7 +7,7 @@
     </span>
   {{else}}
     <span class="chatter" {{bind-attr style="item.style"}}>
-      {{item.username}}:
+      <strong>{{item.username}}</strong>:
     </span>
     <span class="message">{{{item.message}}}</span>
     <span class="timestamp">{{item.timestamp}}</span>
