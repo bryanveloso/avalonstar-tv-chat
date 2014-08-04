@@ -2,7 +2,7 @@
   <div class="line">
   {{#if item.is_emote}}
     <span class="emoted">
-      <span class="chatter" {{bind-attr style="item.style"}}>{{item.username}}</span>
+      <span class="chatter" {{bind-attr style="item.style"}}><strong>{{item.username}}</strong></span>
       <span class="message" {{bind-attr style="item.style"}}>{{{item.message}}}</span>
     </span>
   {{else}}
