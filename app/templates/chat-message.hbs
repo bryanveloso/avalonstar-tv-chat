@@ -1,4 +1,4 @@
-<li class="chat-line" {{bind-attr data-username="item.username"}}>
+<li {{bindAttr class=":chat-line item.broadcaster:broadcaster-line"}} {{bind-attr data-username="item.username"}}>
   <div class="line">
   {{#if item.is_emote}}
     <span class="emoted">
@@ -14,7 +14,6 @@
   {{/if}}
   </div>
   <ul class="chatter-roles">
-  {{#if item.broadcaster}}<li class="chatter-role role-broadcaster"><span></span></li>{{/if}}
   {{#each role in item.roles}}
     <li class="chatter-role role-{{role}}"><span></span></li>
   {{/each}}

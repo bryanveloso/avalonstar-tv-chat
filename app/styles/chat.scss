@@ -12,39 +12,43 @@ body {
 .chat {
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
-  overflow: hidden;
-}
+  overflow: hidden; }
 .chat-list {
   height: 100%;
-  overflow-y: scroll;
-}
+  overflow-y: scroll; }
 .chat-list, .chatter-roles {
   margin: 0;
   padding: 0;
-
   list-style: none; }
-.chat-line { display: flex; }
+.chat-line {
+  display: flex;
+  opacity: 0;
+  transition: all 250ms ease-in-out;
+
+  &.broadcaster-line { background-color: #111; }
+  &.visible { opacity: 1; }
+}
 .line {
   flex: 1;
-
   font-size: 13px;
-  line-height: 26px; }
+  line-height: 26px;
+  text-shadow: 0 1px 2px #111; }
 
 // .chatter-related styles.
-.chatter {
-  color: #fff;
-  // font-weight: bold;
+.chatter { color: #fff; }
+.chatter-roles {
+  height: 26px;
+  margin-left: 10px;
 }
-.chatter-roles { margin-left: 10px; }
 .chatter-role {
   display: inline-block;
   margin-left: -3px;
-  width: 18px; height: 20px;
+  width: 18px; height: 26px;
 
   background-position: center center;
+  background-repeat: no-repeat;
 
   &.role-admin { background-image: url('/images/role-admin.png'); }
-  &.role-broadcaster { background-image: url('/images/role-broadcaster.png'); }
   &.role-moderator { background-image: url('/images/role-moderator.png'); }
   &.role-staff { background-image: url('/images/role-staff.png'); }
   &.role-turbo { background-image: url('/images/role-turbo.png'); }
