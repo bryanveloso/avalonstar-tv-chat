@@ -27,7 +27,8 @@ Chat = Ember.Controller.extend(EmberPusher.Bindings,
 
   emoticonize: (message, emotes) ->
     # Add the default emotes to the set.
-    emotes = emotes.concat @emoticon_sets['default']
+    emotes = emotes.concat ['default']
+    console.log emotes
 
     for set in emotes
       unless typeof @emoticon_sets[set] is 'undefined'
@@ -39,24 +40,6 @@ Chat = Ember.Controller.extend(EmberPusher.Bindings,
             console.log "WE FOUND A MATCH."
 
     return message
-
-  # emoticonize: function(message, userData) {
-  #     if(!userData.emotes) return message;
-  #     userData.emotes.forEach(function(set) {
-  #         if(Chat.vars.emoticon_sets[set] === undefined) return;
-  #         Chat.vars.emoticon_sets[set].forEach(function(emote) {
-  #             if(message.match(emote.regex)) {
-  #                 message = message.replace(emote.regex, emote.image.html);
-  #             }
-  #         });
-  #     });
-  #     Chat.vars.default_emoticons.forEach(function(emote) {
-  #         if(message.match(emote.regex)) {
-  #             message = message.replace(emote.regex, emote.image.html);
-  #         }
-  #     });
-  #     return message;
-  # },
 
   # Emoticon-related data.
   emoticons: []
