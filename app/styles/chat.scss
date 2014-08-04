@@ -1,3 +1,5 @@
+* { box-sizing: border-box; }
+
 body {
   background: #141414;
   color: #fff;
@@ -5,6 +7,8 @@ body {
   font-weight: 400;
   font-style: normal; }
 
+// .chat-related styles.
+// Styling for chat structure, etc.
 .chat {
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
@@ -19,21 +23,18 @@ body {
   padding: 0;
 
   list-style: none; }
-.chat-line {
-  display: flex;
-}
+.chat-line { display: flex; }
 .line {
   flex: 1;
-  margin-bottom: 6px;
 
-  font-size: 12px;
-  line-height: 20px;
-}
+  font-size: 13px;
+  line-height: 24px; }
 
+// .chatter-related styles.
 .chatter {
   color: #fff;
-  font-weight: bold; }
-
+  // font-weight: bold;
+}
 .chatter-roles { margin-left: 10px; }
 .chatter-role {
   display: inline-block;
@@ -49,6 +50,13 @@ body {
   &.role-turbo { background-image: url('/images/role-turbo.png'); }
 }
 
+// .message-related styles.
+.message { overflow-wrap: break-word; }
 .timestamp { display: none }
 
-.emoticon { display: inline-block }
+.emoticon {
+  display: inline-block;
+  vertical-align: bottom;
+
+  background-position: center center;
+  background-repeat: no-repeat; }

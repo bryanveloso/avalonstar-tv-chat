@@ -21,8 +21,42 @@ Chat = Ember.Controller.extend(EmberPusher.Bindings,
     if data.roles? and ('staff' and 'admin' in data.roles)
       data.roles = data.roles.filter (role) -> role isnt 'admin'
 
+    data.message = @emoticonize(data.message, data.emotes)
     @messages.pushObject data
     return
+
+  emoticonize: (message, emotes) ->
+    self = @
+
+    for set in emotes
+      unless typeof self.emoticon_sets[set] is 'undefined'
+        console.log self.emoticon_sets[set]
+        for emote in self.emoticon_sets[set]
+          if message.match(emote.regex)
+            message = message.replace(emote.regex, emote.html)
+            console.log emote.html
+            console.log message
+            console.log "WE FOUND A MATCH."
+
+    return message
+
+  # emoticonize: function(message, userData) {
+  #     if(!userData.emotes) return message;
+  #     userData.emotes.forEach(function(set) {
+  #         if(Chat.vars.emoticon_sets[set] === undefined) return;
+  #         Chat.vars.emoticon_sets[set].forEach(function(emote) {
+  #             if(message.match(emote.regex)) {
+  #                 message = message.replace(emote.regex, emote.image.html);
+  #             }
+  #         });
+  #     });
+  #     Chat.vars.default_emoticons.forEach(function(emote) {
+  #         if(message.match(emote.regex)) {
+  #             message = message.replace(emote.regex, emote.image.html);
+  #         }
+  #     });
+  #     return message;
+  # },
 
   # Emoticon-related data.
   emoticons: []
@@ -51,22 +85,58 @@ Chat = Ember.Controller.extend(EmberPusher.Bindings,
           emoticon_set.push
             is_emoticon: true
             class: "emo-#{image.id}"
+            html: " <span class=\"emo-#{image.id} emoticon\"></span> "
             regex: regex
 
       self.set('emoticons', json.emoticons)
       console.log "#{self.emoticons.length} emoticons loaded."
 
   styleEmoticons: (->
-    self = @
     styles = ''
+    images = 0
+
+    console.log 'Styling emoticons...'
 
     #
     for emoticon in @get('emoticons')
       for image in emoticon.images
-        console.log image
+        images++
+        styles += """
+        .emo-#{image.id} {
+          background-image: url('#{image.url}');
+          width: #{image.width}px; height: #{image.height}px;
+          margin-top: #{(image.height - 18) / 2}; }
 
+        """
+
+    console.log "#{images} images styled."
     return "<style>#{styles}</style>"
   ).property('emoticons.[]')
+
+  # emoticonStyle: function () {
+  #   var self = this,
+  #       styles = '',
+  #       EMOTICON_TEMPLATE_COMPILED = Handlebars.compile(
+  #       '.emo-{{id}} {' +
+  #         'background-image:url({{url}});' +
+  #         'height:{{height}}px;' +
+  #         'width:{{width}}px;' +
+  #         '{{#if tall}}margin:-{{marginTop}}px 0;{{/if}} ' +
+  #       '}');
+  #   this.get('emoticons').forEach(function (emoticon) {
+  #     emoticon.images.forEach(function (image) {
+  #       styles += EMOTICON_TEMPLATE_COMPILED({
+  #         id: image.id,
+  #         url: image.url,
+  #         height: image.height,
+  #         width: image.width,
+  #         tall: image.height > 18,
+  #         marginTop: (image.height - 18) / 2
+  #       });
+  #     });
+  #   });
+  #   return '<style>.emoticon { display: inline-block; }' + styles + '</style>';
+  # }.property('emoticons.[]')
 
   # Actions.
   actions:
