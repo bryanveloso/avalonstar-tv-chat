@@ -2,6 +2,6 @@
 
 ChatRoute = Ember.Route.extend
   model: ->
-    @store.find 'message'
+    @store.findAll 'message'
 
 `export default ChatRoute`
