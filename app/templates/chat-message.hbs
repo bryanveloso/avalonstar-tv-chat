@@ -1,21 +1,19 @@
-<li {{bind-attr class=":chat-line item.broadcaster:broadcaster-line"}} {{bind-attr data-username="item.username"}}>
-  <div class="line">
-  {{#if item.is_emote}}
-    <span class="emoted">
-      <span class="chatter" {{bind-attr style="item.style"}}><strong>{{item.username}}</strong></span>
-      <span class="message" {{bind-attr style="item.style"}}>{{{item.message}}}</span>
-    </span>
-  {{else}}
-    <span class="chatter" {{bind-attr style="item.style"}}>
-      <strong>{{item.username}}</strong>:
-    </span>
-    <span class="message">{{{item.message}}}</span>
-    <span class="timestamp">{{item.timestamp}}</span>
-  {{/if}}
-  </div>
-  <ul class="chatter-roles">
-  {{#each role in item.roles}}
-    <li class="chatter-role role-{{role}}"><span></span></li>
-  {{/each}}
-  </ul>
-</li>
+<div class="line">
+{{#if is_emote}}
+  <span class="emoted">
+    <span class="chatter" {{bind-attr style="style"}}><strong>{{username}}</strong></span>
+    <span class="message" {{bind-attr style="style"}}>{{{message}}}</span>
+  </span>
+{{else}}
+  <span class="chatter" {{bind-attr style="style"}}>
+    <strong>{{username}}</strong>:
+  </span>
+  <span class="message">{{{message}}}</span>
+  <span class="timestamp">{{timestamp}}</span>
+{{/if}}
+</div>
+<ul class="chatter-roles">
+{{#each role in role_list}}
+  <li class="chatter-role role-{{role}}"><span></span></li>
+{{/each}}
+</ul>
