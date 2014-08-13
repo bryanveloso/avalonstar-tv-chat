@@ -1,51 +1,17 @@
 `import Ember from 'ember'`
 
-Chat = Ember.Controller.extend(EmberPusher.Bindings,
+Chat = Ember.ArrayController.extend
+  itemController: 'chat-message'
+  sortProperties: ['timestamp']
+
   init: ->
     @loadEmoticons()
     @_super()
 
-  # Pusher configuration.
-  PUSHER_SUBSCRIPTIONS:
-    chat: ['message']
-  logPusherEvents: true,
-
-  # Chat-related data.
-  messages: []
-
-  # Chat-related methods.
-  pushMessage: (data) ->
-    data.style = "color: #{data.color}"
-    if data.username is 'avalonstar'
-      data.broadcaster = true
-    if data.roles? and ('staff' and 'admin' in data.roles)
-      data.roles = data.roles.filter (role) -> role isnt 'admin'
-
-    data.message = @emoticonize(data.message, data.emotes)
-    data.message = @linkify(data.message)
-    @messages.pushObject data
-    return
-
-  emoticonize: (message, emotes) ->
-    # Add the default emotes to the set.
-    emotes = emotes.concat ['default']
-    for set in emotes
-      unless typeof @emoticon_sets[set] is 'undefined'
-        for emote in @emoticon_sets[set]
-          if message.match(emote.regex)
-            message = message.replace(emote.regex, emote.html)
-    return message
-
-  linkify: (message) ->
-    # URLs starting with http://, https://, or ftp://
-    replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim
-    linkifiedText = message.replace(replacePattern1, '<a href="$1" target="_blank">$1</a>')
-
-    # URLs starting with "www." (without // before it, or it'd re-link the ones done above).
-    replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim
-    linkifiedText = message.replace(replacePattern2, '$1<a href="http://$2" target="_blank">$2</a>')
-
-    return linkifiedText
+  latest: (->
+    # TIL: Ember will only show the slice.
+    @get('arrangedContent').slice(-20)
+  ).property('arrangedContent.[]')
 
   # Emoticon-related data.
   emoticons: []
@@ -58,7 +24,7 @@ Chat = Ember.Controller.extend(EmberPusher.Bindings,
     # We use Night's emotes instead of Twitch's because JSONP was disabled
     # on the endpoint: <https://github.com/justintv/Twitch-API/issues/136>
     Ember.$.getJSON 'https://www.nightdev.com/hosted/emotes.php?callback=?', (json) ->
-      console.log 'Loading emoticons...'
+      Ember.debug 'Loading emoticons...'
 
       id = 0
       for emoticon in json.emoticons
@@ -83,13 +49,13 @@ Chat = Ember.Controller.extend(EmberPusher.Bindings,
             regex: regex
 
       self.set('emoticons', json.emoticons)
-      console.log "#{self.emoticons.length} emoticons loaded."
+      Ember.debug "#{self.emoticons.length} emoticons loaded."
 
   styleEmoticons: (->
     styles = ''
     images = 0
 
-    console.log 'Styling emoticons...'
+    Ember.debug 'Styling emoticons...'
 
     #
     for emoticon in @get('emoticons')
@@ -103,14 +69,8 @@ Chat = Ember.Controller.extend(EmberPusher.Bindings,
 
         """
 
-    console.log "#{images} images styled."
+    Ember.debug "#{images} images styled."
     return "<style>#{styles}</style>"
   ).property('emoticons.[]')
-
-  # Actions.
-  actions:
-    message: (data) ->
-      @pushMessage data
-)
 
 `export default Chat`
