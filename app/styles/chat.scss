@@ -69,3 +69,15 @@ body {
 [data-username="avalonstar"] {
   .role-admin { display: none; }
 }
+
+.notification {
+  padding: 8px;
+  position: absolute; top: 0;
+  width: 100%;
+  z-index: 100;
+
+  border: 1px solid #333;
+  border-radius: 2px;
+  background: rgba(#000, 0.9);
+  font-size: 12px;
+}
