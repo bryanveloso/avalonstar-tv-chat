@@ -4,9 +4,9 @@ Chat = Ember.ArrayController.extend
   itemController: 'chat-message'
   sortProperties: ['timestamp']
 
-  arrangedContent: (->
-    @get('content').slice(-30);
-  ).property('content.[]')
+  # arrangedContent: (->
+  #   @get('content').slice(-30);
+  # ).property('content.[]')
 
   # Emoticon-related methods.
   styleEmoticons: (->
