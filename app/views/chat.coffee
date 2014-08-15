@@ -10,8 +10,10 @@ Chat = Ember.View.extend
       scrollTop: container.prop('scrollHeight')
     , 250
 
-    latestMessage = @$('.chat-line')
-    latestMessage.addClass 'visible'
+    # Reveal all messages.
+    @$('.chat-line').addClass 'visible'
+    @$('.chat-line:last').addClass 'last'
+    @$('.chat-line:not(:last)').removeClass 'last'
 
   actions:
     scroll: ->

@@ -25,7 +25,8 @@ body {
   opacity: 0;
   transition: all 250ms ease-in-out;
 
-  &.visible { opacity: 1; }
+  &.last { opacity: 1; }
+  &.visible { opacity: 0.6; }
 }
 
 .line {
@@ -70,6 +71,7 @@ body {
   .role-admin { display: none; }
 }
 
+// A last resort kinda thing.
 .notification {
   padding: 8px;
   position: absolute; top: 0;
