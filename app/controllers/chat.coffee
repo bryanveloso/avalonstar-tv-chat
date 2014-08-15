@@ -4,10 +4,9 @@ Chat = Ember.ArrayController.extend
   itemController: 'chat-message'
   sortProperties: ['timestamp']
 
-  latest: (->
-    # TIL: Ember will only show the slice.
-    @get('arrangedContent').slice(-20)
-  ).property('arrangedContent.[]')
+  arrangedContent: (->
+    @get('content').slice(-30);
+  ).property('content.[]')
 
   # Emoticon-related methods.
   styleEmoticons: (->
