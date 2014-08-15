@@ -2,13 +2,13 @@
 {{#if is_emote}}
   <span class="emoted">
     <span class="chatter" {{bind-attr style="style"}}><strong>{{username}}</strong></span>
-    <span class="message" {{bind-attr style="style"}}>{{{message}}}</span>
+    <span class="message" {{bind-attr style="style"}}>{{{processedMessage}}}</span>
   </span>
 {{else}}
   <span class="chatter" {{bind-attr style="style"}}>
     <strong>{{username}}</strong>:
   </span>
-  <span class="message">{{{message}}}</span>
+  <span class="message">{{{processedMessage}}}</span>
   <span class="timestamp">{{timestamp}}</span>
 {{/if}}
 </div>

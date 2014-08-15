@@ -9,7 +9,7 @@ ChatMessageController = Ember.ObjectController.extend
   #   console.log 'ready!'
   # ).observes('parentController.emoticon_sets.[]')
 
-  displayMessage: (->
+  processedMessage: (->
     message = @get('message')
     # console.log message
 
@@ -19,11 +19,11 @@ ChatMessageController = Ember.ObjectController.extend
     # console.log @get('parentController').emoticon_sets
 
     # emotes = @get('emotes').split(',').concat ['default']
-    emoticon_sets = @get('parentController').emoticon_sets
+    sets = @get('emoticons.sets')
 
     for set in emotes
-      unless typeof emoticon_sets[set] is 'undefined'
-        for emote in emoticon_sets[set]
+      unless typeof sets[set] is 'undefined'
+        for emote in sets[set]
           if message.match(emote.regex)
             message = message.replace(emote.regex, emote.html)
     return message
