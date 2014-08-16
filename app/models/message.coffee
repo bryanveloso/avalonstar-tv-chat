@@ -11,7 +11,8 @@ Message = DS.Model.extend
 
   # Computed properties.
   emote_list: (->
-    @get('emotes')?.split(',')
+    list = @get('emotes')?.split(',')
+    return list or []
   ).property('emotes')
   role_list: (->
     @get('roles')?.split(',')
