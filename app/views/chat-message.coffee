@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 ChatMessageView = Ember.View.extend
-  classNames: ['chat-line']
+  classNames: ['chat-line', 'hidden']
   tagName: 'li'
   templateName: 'chat-message'
 

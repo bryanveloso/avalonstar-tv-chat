@@ -11,9 +11,7 @@ Chat = Ember.View.extend
     , 250
 
     # Reveal all messages.
-    @$('.chat-line').addClass 'visible'
-    @$('.chat-line:not(:last)').removeClass 'last'
-    @$('.chat-line:last').addClass 'last'
+    @$('.chat-line').removeClass 'hidden'
 
   actions:
     scroll: ->
