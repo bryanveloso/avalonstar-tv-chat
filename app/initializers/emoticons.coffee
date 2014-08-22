@@ -1,3 +1,5 @@
+`import Ember from 'ember'`
+
 EmoticonsInitializer =
   name: 'emoticons'
   initialize: (container, app) ->
