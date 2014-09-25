@@ -21,4 +21,9 @@ Broadcast = DS.Model.extend
   # i.e., comments or special guests.
   status: DS.attr 'string'
 
+  # Games played.
+  games: DS.hasMany('game',
+    async: true
+  )
+
 `export default Broadcast`
