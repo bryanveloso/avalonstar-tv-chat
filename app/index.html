@@ -15,13 +15,12 @@
   </head>
   <body>
     <script>
-      window.AvalonstarENV = {{ENV}};
-      window.EmberENV = window.AvalonstarENV.EmberENV;
+      window.EmberENV = {{EMBER_ENV}};
     </script>
     <script src="assets/vendor.js"></script>
     <script src="assets/avalonstar.js"></script>
     <script>
-      window.Avalonstar = require('avalonstar/app')['default'].create(AvalonstarENV.APP);
+      window.Avalonstar = require('avalonstar/app')['default'].create({{APP_CONFIG}});
     </script>
   </body>
 </html>

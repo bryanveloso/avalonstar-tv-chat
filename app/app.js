@@ -1,17 +1,16 @@
 import Ember from 'ember';
 import Resolver from 'ember/resolver';
 import loadInitializers from 'ember/load-initializers';
+import config from './config/environment';
 
 Ember.MODEL_FACTORY_INJECTIONS = true;
 
 var App = Ember.Application.extend({
-  modulePrefix: 'avalonstar', // TODO: loaded via config
-  Resolver: Resolver,
-
-  // Configuration for ember-pusher.
-  PUSHER_OPTS: { key: '207f2c96da3bdb9301f8', connection: {} }
+  modulePrefix: config.modulePrefix,
+  podModulePrefix: config.podModulePrefix,
+  Resolver: Resolver
 });
 
-loadInitializers(App, 'avalonstar');
+loadInitializers(App, config.modulePrefix);
 
 export default App;
