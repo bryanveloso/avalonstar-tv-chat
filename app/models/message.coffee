@@ -24,4 +24,7 @@ Message = DS.Model.extend
     "color: #{color}"
   ).property('color')
 
+  # Is this message purged?
+  is_purged: DS.attr 'boolean'
+
 `export default Message`

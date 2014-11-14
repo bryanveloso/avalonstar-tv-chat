@@ -1,4 +1,4 @@
-<div class="line">
+<div {{bind-attr class=":line is_purged:purged"}}>
 {{#if is_emote}}
   <span class="emoted">
     <span class="chatter" {{bind-attr style="style"}}><strong>{{username}}</strong></span>
@@ -8,7 +8,13 @@
   <span class="chatter" {{bind-attr style="style"}}>
     <strong>{{username}}</strong>:
   </span>
-  <span class="message">{{{processedMessage}}}</span>
+  <span class="message">
+  {{#if is_purged}}
+    <i>Redacted.</i>
+  {{else}}
+    {{{processedMessage}}}
+  {{/if}}
+  </span>
   <span class="timestamp">{{timestamp}}</span>
 {{/if}}
 </div>
