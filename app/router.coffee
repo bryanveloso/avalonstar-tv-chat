@@ -9,10 +9,4 @@ Router.map ->
   @resource 'chat', ->
     @resource 'chat-message'
 
-  # Broadcasts.
-  @resource 'broadcast'
-
-  # Games.
-  @resource 'game'
-
 `export default Router`
