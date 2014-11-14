@@ -16,6 +16,9 @@ ChatMessageController = Ember.ObjectController.extend
     emotes = @get('emote_list').concat ['default']
     sets = @get('emoticons.sets')
 
+    # Escape "<" so hearts will work.
+    message = message.replace('<3', '&lt;3')
+
     for set in emotes
       unless typeof sets[set] is 'undefined'
         for emote in sets[set]
