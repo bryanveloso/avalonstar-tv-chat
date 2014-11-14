@@ -6,7 +6,7 @@ Message = DS.Model.extend
   is_emote: DS.attr 'boolean'
   message: DS.attr 'string'
   roles: DS.attr 'string'
-  timestamp: DS.attr 'string'
+  timestamp: DS.attr 'number'
   username: DS.attr 'string'
 
   # Computed properties.
