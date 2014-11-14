@@ -6,9 +6,7 @@ Router = Ember.Router.extend
 
 Router.map ->
   # Chat.
-  @resource 'chat',
-    path: '/live/chat'
-  , ->
+  @resource 'chat', ->
     @resource 'chat-message'
 
   # Broadcasts.
