@@ -2,6 +2,7 @@
 
 Chat = Ember.ArrayController.extend
   itemController: 'chat-message'
+  sortProperties: ['timestamp']
 
   arrangedContent: (->
     @get('content').sortBy('timestamp').slice(-30);
