@@ -10,7 +10,7 @@ module.exports = function(environment) {
       'default-src': "'none'",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' www.nightdev.com",
       'font-src': "'self' data: use.typekit.net",
-      'connect-src': "'self' wss://*.firebaseio.com",
+      'connect-src': "'self' wss://*.firebaseio.com imraising.tv",
       'img-src': "'self' static-cdn.jtvnw.net",
       'style-src': "'self' 'unsafe-inline' cloud.typography.com",
     },
