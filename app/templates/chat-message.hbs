@@ -3,12 +3,12 @@
 <div {{bind-attr class=":line is_purged:purged"}}>
 {{#if is_emote}}
   <span class="emoted">
-    <span class="chatter" {{bind-attr style="style"}}><strong>{{display_name}}</strong></span>
+    <span class="chatter" {{bind-attr style="style"}}><strong>{{#if display_name}}{{display_name}}{{else}}{{username}}{{/if}}</strong></span>
     <span class="message" {{bind-attr style="style"}}>{{{processedMessage}}}</span>
   </span>
 {{else}}
   <span class="chatter" {{bind-attr style="style"}}>
-    <strong>{{display_name}}</strong>:
+    <strong>{{#if display_name}}{{display_name}}{{else}}{{username}}{{/if}}</strong>:
   </span>
   <span class="message">
   {{#if is_purged}}
