@@ -2,6 +2,7 @@
 
 Message = DS.Model.extend
   color: DS.attr 'string'
+  display_name: DS.attr 'string'
   emotes: DS.attr 'string'
   is_emote: DS.attr 'boolean'
   message: DS.attr 'string'
