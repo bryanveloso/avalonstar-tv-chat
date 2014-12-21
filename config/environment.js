@@ -7,11 +7,12 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     contentSecurityPolicy: {
-      'default-src': "'none'",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' www.nightdev.com",
-      'font-src': "'self' data: use.typekit.net",
       'connect-src': "'self' wss://*.firebaseio.com imraising.tv",
+      'default-src': "'none'",
+      'font-src': "'self' data: use.typekit.net",
       'img-src': "'self' static-cdn.jtvnw.net",
+      'media-src': "'self' avalonstar-tv.s3.amazonaws.com",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' www.nightdev.com",
       'style-src': "'self' 'unsafe-inline' cloud.typography.com",
     },
     EmberENV: {
@@ -50,6 +51,9 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+
+  // Environment variables.
+  ENV.IMR_KEY = process.env.IMR_KEY;
 
   return ENV;
 };
