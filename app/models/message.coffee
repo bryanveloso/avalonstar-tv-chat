@@ -21,8 +21,12 @@ Message = DS.Model.extend
 
   # Rendering/Display properties.
   style: (->
-    color = @get 'color'
-    "color: #{color}"
+    color = @get('color').slice 1
+    for i in [0..2]
+      h = parseInt(color.substr(i * 2, 2), 16)
+      h = Math.round(Math.min(Math.max(0, h + (h * 0.5)), 255)).toString(16)
+      rgb += ("00" + h).substr(h.length)
+    "color: ##{rgb}"
   ).property('color')
 
   # Is this message purged?
