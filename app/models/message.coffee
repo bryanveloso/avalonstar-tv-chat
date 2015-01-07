@@ -19,6 +19,10 @@ Message = DS.Model.extend
     @get('roles')?.split(',')
   ).property('roles')
 
+  name: (->
+    @get('display_name') or @get('username')
+  ).property('name')
+
   # Rendering/Display properties.
   style: (->
     color = @get('color').slice 1
