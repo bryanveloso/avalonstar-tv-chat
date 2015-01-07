@@ -1,0 +1,4 @@
+== styleEmoticons
+
+ul.chat-list
+  each itemView='chat-message'
