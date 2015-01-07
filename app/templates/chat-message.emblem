@@ -10,7 +10,7 @@ div class={ :line is_purged:purged }
     span.chatter style=style
       strong
         = name
-        ' :
+      ' :
     span.message
       if is_purged
         i Redacted.
