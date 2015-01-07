@@ -1,4 +1,4 @@
-div class={ :line is_purged:purged }
+div class={ :line is_purged:purged } data-timestamp=timestamp
   if is_emote
     span.emote
       span.chatter style=style
