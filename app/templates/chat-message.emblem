@@ -3,7 +3,7 @@ div class={ :line is_purged:purged } data-timestamp=timestamp
     span.emote
       span.chatter style=style
         strong
-          = name
+          ' = name
       span.message style=style
           == processedMessage
   else
