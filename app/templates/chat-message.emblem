@@ -4,7 +4,7 @@ div class={ :line is_purged:purged } data-timestamp=timestamp
       span.chatter style=style
         strong
           = name
-          '
+        '
       span.message style=style
           == processedMessage
   else
