@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
 
-NotifierController = Ember.ArrayController.extend
+NotifierController = Ember.ObjectController.extend()
 
 `export default NotifierController`
