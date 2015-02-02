@@ -1,0 +1,25 @@
+<div {{bind-attr class=":line is_purged:purged is_notify:notify"}} {{bind-attr data-timestamp="timestamp"}}>
+{{#if is_emote}}
+  <span class="emote">
+    <span class="chatter" {{bind-attr style="style"}}><strong>{{name}}</strong></span>
+    <span class="message" {{bind-attr style="style"}}>{{{processedMessage}}}</span>
+  </span>
+{{else}}
+  <span class="chatter" {{bind-attr style="style"}}>
+    <strong>{{name}}</strong>:
+  </span>
+  <span class="message">
+  {{#if is_purged}}
+    <i>Redacted.</i>
+  {{else}}
+    {{{processedMessage}}}
+  {{/if}}
+  </span>
+  <span class="timestamp">{{timestamp}}</span>
+{{/if}}
+</div>
+<ul class="chatter-roles">
+{{#each role in role_list}}
+  <li class="chatter-role role-{{role}}"><span></span></li>
+{{/each}}
+</ul>
