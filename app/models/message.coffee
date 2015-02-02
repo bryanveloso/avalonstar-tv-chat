@@ -37,4 +37,11 @@ Message = DS.Model.extend
   # Is this message purged?
   is_purged: DS.attr 'boolean'
 
+  # Is this message from twitchnotify?
+  # (For subscription notifications.)
+  is_notify: (->
+    username = @get('username')
+    true if username is 'twitchnotify'
+  ).property('is_notify')
+
 `export default Message`
