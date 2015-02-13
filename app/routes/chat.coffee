@@ -2,6 +2,8 @@
 
 ChatRoute = Ember.Route.extend
   model: ->
-    @store.findAll 'message'
+    @store.find 'message',
+      orderBy: 'timestamp'
+      limitToLast: 20
 
 `export default ChatRoute`
