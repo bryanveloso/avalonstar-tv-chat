@@ -1,8 +1,0 @@
-.widget
-  .square
-  .notifications.subscriptions
-    .negative-space
-    .bar
-      span.type Subscriber
-      strong.username Avalonstar
-      | welcome to the Crusaders!
