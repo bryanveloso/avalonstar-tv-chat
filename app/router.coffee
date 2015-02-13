@@ -8,7 +8,6 @@ Router.map ->
   # Chat.
   @resource 'chat', ->
     @resource 'chat-message'
-  @route 'donation'
   @resource 'notifier'
 
 `export default Router`
