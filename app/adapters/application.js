@@ -16,57 +16,64 @@ export default DS.FirebaseAdapter.extend({
   // - limitToLast
   // - startAt
   // - endAt
-  // - equalTo
   findQuery: function(store, type, query) {
     var adapter = this;
     var ref = this._getRef(type);
 
-    if (!query.orderBy || query.orderBy === '_key') {
-      ref = ref.orderByKey();
-    } else if (query.orderBy && query.orderBy !== '_priority') {
+    query = query || {};
+
+    if (query.orderBy) {
       ref = ref.orderByChild(query.orderBy);
-    } else {
-      ref = ref.orderByPriority();
     }
 
-    if (query.limitToFirst && query.limitToFirst >= 0) {
-      ref = ref.limitToFirst(query.limitToFirst);
-    }
-
-    if (query.limitToLast && query.limitToLast >= 0) {
-      ref = ref.limitToLast(query.limitToLast);
+    if (query.limit) {
+      if (query.desc) {
+        ref = ref.limitToLast(query.limit);
+      } else {
+        ref = ref.limitToFirst(query.limit);
+      }
     }
 
     if (query.startAt) {
-      ref = ref.startAt(query.startAt);
+      ref = query.startAt === true ? ref.startAt() : ref.startAt(query.startAt);
     }
 
     if (query.endAt) {
-      ref = ref.endAt(query.endAt);
-    }
-
-    if (query.equalTo) {
-      ref = ref.equalTo(query.equalTo);
+      ref = query.endAt === true ? ref.endAt() : ref.endAt(query.endAt);
     }
 
     return new Ember.RSVP.Promise(function(resolve, reject) {
       // Listen for child events on the type.
+      var valueEventTriggered;
+      if (!adapter._findQueryHasEventsForType(type, query)) {
+        valueEventTriggered = adapter._findQueryAddEventListeners(store, type, ref, query);
+      }
       ref.once('value', function(snapshot) {
-        if (!adapter._findAllHasEventsForType(type)) {
-          adapter._findAllAddEventListeners(store, type, ref);
+        var results = Ember.A([]);
+        if (valueEventTriggered) {
+          Ember.run(null, valueEventTriggered.resolve);
         }
-        var results = [];
-        snapshot.forEach(function(childSnapshot) {
-          var payload = adapter._assignIdToPayload(childSnapshot);
-          adapter._updateRecordCacheForType(type, payload);
-          results.push(payload);
-        });
-        resolve(results);
+        if (snapshot.val() === null) {
+          adapter._enqueue(resolve, [results]);
+        }
+        else {
+          snapshot.forEach(function(childSnapshot) {
+            var payload = adapter._assignIdToPayload(childSnapshot);
+            adapter._updateRecordCacheForType(type, payload);
+            results.push(payload);
+          });
+          if (query.desc) {
+            results.reverse();
+          }
+          adapter._enqueue(resolve, [results]);
+        }
       }, function(error) {
-        reject(error);
+        adapter._enqueue(reject, [error]);
       });
-    }, Ember.String.fmt('DS: FirebaseAdapter#findQuery %@ with %@', [type, query]));
+    }, Ember.String.fmt('DS: FirebaseAdapter#findQuery %@, %@ to %@', [type, JSON.stringify(query), ref.toString()]));
+
   },
+
 
   /**
     Keep track of what types `.findQuery()` has been called for
