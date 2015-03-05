@@ -16,7 +16,7 @@ Message = DS.Model.extend
     return list or []
   ).property('emotes')
   role_list: (->
-    @get('roles')?.split(',')
+    @get('roles')?.split(',').sort()
   ).property('roles')
 
   name: (->
