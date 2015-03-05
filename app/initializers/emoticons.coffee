@@ -45,6 +45,6 @@ EmoticonsInitializer =
 
     app.inject 'route', 'emoticons', 'service:emoticons'
     app.inject 'controller', 'emoticons', 'service:emoticons'
-
+    app.inject 'component', 'emoticons', 'service:emoticons'
 
 `export default EmoticonsInitializer`

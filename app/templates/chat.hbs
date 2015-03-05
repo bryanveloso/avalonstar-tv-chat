@@ -1,5 +1,7 @@
 {{{styleEmoticons}}}
 
 <ul class="chat-list">
-  {{each itemView='chat-message'}}
+{{#each message in arrangedContent}}
+  {{chat-message message=message}}
+{{/each}}
 </ul>

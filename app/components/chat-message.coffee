@@ -1,6 +1,16 @@
 `import Ember from 'ember'`
 
-ChatMessageController = Ember.ObjectController.extend
+ChatMessageComponent = Ember.Component.extend
+  classNames: ['chat-line', 'hidden']
+  tagName: 'li'
+
+  # Attribute bindings.
+  attributeBindings: ['username:data-username']
+  username: Ember.computed.alias('message.username')
+
+  didInsertElement: ->
+    @get('parentView').send('scroll')
+
   linkify: (inputText) ->
     # URLs starting with http://, https://, or ftp://
     replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim
@@ -12,8 +22,8 @@ ChatMessageController = Ember.ObjectController.extend
     return replacedText
 
   processedMessage: (->
-    message = @get('message')
-    emotes = @get('emote_list').concat ['default']
+    message = @get('message.message')
+    emotes = @get('message.emote_list').concat ['default']
     sets = @get('emoticons.sets')
 
     # Escape "<" so hearts will work.
@@ -24,8 +34,8 @@ ChatMessageController = Ember.ObjectController.extend
         for emote in sets[set]
           if message.match(emote.regex)
             message = message.replace(emote.regex, emote.html)
-            message = @linkify(message)
+            # message = @linkify(message)
     return message
-  ).property('message', 'emote_list', 'emoticons.sets')
+  ).property('message.message', 'message.emote_list', 'emoticons.sets')
 
-`export default ChatMessageController`
+`export default ChatMessageComponent`
