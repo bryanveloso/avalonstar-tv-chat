@@ -15,5 +15,8 @@
     "qunit": "~1.17.1",
     "moment": "~2.8.0",
     "firebase": "~2.1.0"
+  },
+  "resolutions": {
+    "handlebars": "2.0.0"
   }
 }
