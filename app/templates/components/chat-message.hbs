@@ -2,7 +2,7 @@
 {{#if message.is_emote}}
   <span class="emote">
     <span class="chatter" style="{{message.style}}"><strong>{{message.name}}</strong></span>
-    <span class="message" style="{{message.style}}">{{{processedMessage}}}</span>
+    <span class="message" style="{{message.style}}">{{{message.message}}}</span>
   </span>
 {{else}}
   <span class="chatter" style="{{message.style}}">
@@ -12,7 +12,7 @@
   {{#if message.is_purged}}
     <i>Redacted.</i>
   {{else}}
-    {{{processedMessage}}}
+    {{{message.message}}}
   {{/if}}
   </span>
   <span class="timestamp">{{message.timestamp}}</span>
