@@ -4,11 +4,12 @@ Message = DS.Model.extend
   color: DS.attr 'string'
   display_name: DS.attr 'string'
   emotes: DS.attr 'string'
-  is_emote: DS.attr 'boolean'
+  is_action: DS.attr 'boolean'
   message: DS.attr 'string'
   roles: DS.attr 'string'
   timestamp: DS.attr 'number'
   username: DS.attr 'string'
+  version: DS.attr 'number'
 
   # Computed properties.
   emote_list: (->
