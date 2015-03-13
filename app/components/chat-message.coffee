@@ -1,15 +1,14 @@
 `import Ember from 'ember'`
 
-ChatMessageView = Ember.View.extend
+ChatMessageComponent = Ember.Component.extend
   classNames: ['chat-line', 'hidden']
   tagName: 'li'
-  templateName: 'chat-message'
 
   # Attribute bindings.
   attributeBindings: ['username:data-username']
-  username: Ember.computed.alias('controller.username')
+  username: Ember.computed.alias('message.username')
 
   didInsertElement: ->
     @get('parentView').send('scroll')
 
-`export default ChatMessageView`
+`export default ChatMessageComponent`

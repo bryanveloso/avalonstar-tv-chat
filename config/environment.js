@@ -4,6 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'avalonstar',
     environment: environment,
+    firebase: 'https://avalonstar.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     contentSecurityPolicy: {
@@ -12,7 +13,7 @@ module.exports = function(environment) {
       'font-src': "'self' data: use.typekit.net",
       'img-src': "'self' static-cdn.jtvnw.net",
       'media-src': "'self' avalonstar-tv.s3.amazonaws.com",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' www.nightdev.com",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
       'style-src': "'self' 'unsafe-inline' cloud.typography.com",
     },
     EmberENV: {
