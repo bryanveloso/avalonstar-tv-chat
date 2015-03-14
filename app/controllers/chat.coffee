@@ -2,7 +2,7 @@
 
 Chat = Ember.ArrayController.extend
   arrangedContent: (->
-    @get('content').slice(-20);
-  ).property('content')
+    @get('model').slice(-20);
+  ).property('model')
 
 `export default Chat`
