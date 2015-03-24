@@ -53,8 +53,5 @@ module.exports = function(environment) {
 
   }
 
-  // Environment variables.
-  ENV.IMR_KEY = process.env.IMR_KEY;
-
   return ENV;
 };
