@@ -11,7 +11,7 @@ module.exports = function(environment) {
       'connect-src': "'self' wss://*.firebaseio.com imraising.tv",
       'default-src': "'none'",
       'font-src': "'self' data: use.typekit.net",
-      'img-src': "'self' static-cdn.jtvnw.net",
+      'img-src': "'self' static-cdn.jtvnw.net p.typekit.net",
       'media-src': "'self' avalonstar-tv.s3.amazonaws.com",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
       'style-src': "'self' 'unsafe-inline' cloud.typography.com",
