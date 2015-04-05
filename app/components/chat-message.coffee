@@ -11,15 +11,17 @@ ChatMessageComponent = Ember.Component.extend
   didInsertElement: ->
     @get('parentView').send('scroll')
 
-    #
-    maxMessages = 5
-    linesToDelete = @$('.chat-line').length - maxMessages
+    # During a normal episode, the DOM gets pretty inundated with `.chat-line`
+    # elements. Eventually adding lines gets slow. So let's only ever show 30
+    # (`maxMessages`) messages, removing the overflow from the DOM.
+    maxMessages = 30
+    linesToDelete = Ember.$('.chat-line').length - maxMessages
     console.log linesToDelete
 
     if linesToDelete > 0
       i = 0
       while i < linesToDelete
-        @$('.chat-line').eq(0).remove()
+        Ember.$('.chat-line').eq(0).remove()
         console.log i
         i++
 
