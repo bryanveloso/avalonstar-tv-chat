@@ -16,13 +16,11 @@ ChatMessageComponent = Ember.Component.extend
     # (`maxMessages`) messages, removing the overflow from the DOM.
     maxMessages = 30
     linesToDelete = Ember.$('.chat-line').length - maxMessages
-    console.log linesToDelete
 
     if linesToDelete > 0
       i = 0
       while i < linesToDelete
         Ember.$('.chat-line').eq(0).remove()
-        console.log i
         i++
 
 `export default ChatMessageComponent`
