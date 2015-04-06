@@ -1,5 +1,5 @@
 <ul class="chat-list">
-{{#each message in model}}
+{{#each model as |message|}}
   {{chat-message message=message}}
 {{/each}}
 </ul>
