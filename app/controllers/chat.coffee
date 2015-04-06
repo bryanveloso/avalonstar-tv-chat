@@ -1,8 +1,5 @@
 `import Ember from 'ember'`
 
-Chat = Ember.ArrayController.extend
-  arrangedContent: (->
-    @get('model').slice(-20);
-  ).property('model')
+ChatController = Ember.Controller.extend()
 
-`export default Chat`
+`export default ChatController`

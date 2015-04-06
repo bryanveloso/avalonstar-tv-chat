@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-Chat = Ember.View.extend
+ChatView = Ember.View.extend
   classNames: ['chat']
   templateName: 'chat'
 
@@ -17,4 +17,4 @@ Chat = Ember.View.extend
     scroll: ->
       Ember.run.debounce(@, @_scroll, 150)
 
-`export default Chat`
+`export default ChatView`
