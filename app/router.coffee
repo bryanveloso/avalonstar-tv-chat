@@ -5,8 +5,6 @@ Router = Ember.Router.extend
   location: config.locationType
 
 Router.map ->
-  # Chat.
-  @resource 'chat', ->
-    @resource 'chat-message'
+  @resource 'chat', { path: '/' }
 
 `export default Router`
