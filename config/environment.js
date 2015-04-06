@@ -13,8 +13,8 @@ module.exports = function(environment) {
       'font-src': "'self' data: use.typekit.net",
       'img-src': "'self' static-cdn.jtvnw.net p.typekit.net",
       'media-src': "'self' avalonstar-tv.s3.amazonaws.com",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
-      'style-src': "'self' 'unsafe-inline' cloud.typography.com",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' use.typekit.net",
+      'style-src': "'self' 'unsafe-inline' use.typekit.net",
     },
     EmberENV: {
       FEATURES: {
