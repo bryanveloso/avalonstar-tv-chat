@@ -1,11 +1,11 @@
 `import { test, moduleForModel } from 'ember-qunit'`
 
-moduleForModel 'message', 'Message', {
+moduleForModel 'chat', {
   # Specify the other units that are required for this test.
   needs: []
 }
 
-test 'it exists', ->
+test 'it exists', (assert) ->
   model = @subject()
   # store = @store()
-  ok model
+  assert.ok !!model

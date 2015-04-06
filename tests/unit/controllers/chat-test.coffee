@@ -1,11 +1,12 @@
 `import { test, moduleFor } from 'ember-qunit'`
 
-moduleFor 'service:emoticons', 'EmoticonsService', {
+moduleFor 'controller:chat', {
   # Specify the other units that are required for this test.
-  # needs: ['service:foo']
+  # needs: ['controller:foo']
 }
 
 # Replace this with your real tests.
-test 'it exists', ->
-  service = @subject()
-  ok service
+test 'it exists', (assert) ->
+  controller = @subject()
+  assert.ok controller
+
