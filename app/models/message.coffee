@@ -32,7 +32,7 @@ Message = DS.Model.extend
       h = parseInt(color.substr(i * 2, 2), 16)
       h = Math.round(Math.min(Math.max(0, h + (h * 0.25)), 255)).toString(16)
       rgb += ("00" + h).substr(h.length)
-    "color: #{rgb}"
+    ("color: #{rgb}").htmlSafe()
   ).property('color')
 
   # Is this message purged?
